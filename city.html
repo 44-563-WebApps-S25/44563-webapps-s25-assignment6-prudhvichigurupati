@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Game by Prudhvi Chigurupati</title>
+</head>
+<body>
+
+    <h1>City Game by Prudhvi Chigurupati</h1>
+
+    <!-- Form Section -->
+    <form>
+        <!-- Secret city input (hidden city) -->
+        <label for="secretCity">Where in the world:</label>
+        <input type="password" id="secretCity" value="San Diego">
+        <br><br>
+
+        <!-- User guess input -->
+        <label for="guessCity">Guess the city:</label>
+        <input type="text" id="guessCity">
+        <br><br>
+
+        <!-- Button to trigger check -->
+        <button type="button" onclick="checkCity()">Check the guess</button>
+    </form>
+
+    <!-- Results display -->
+    <p id="result">Found: 0 | Oops: 0</p>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Initialize global counters
+        let found = 0;
+        let oops = 0;
+
+        // Function to check city match
+        function checkCity() {
+            // Get the values from both input elements
+            const secretCity = document.getElementById('secretCity').value;
+            const guessCity = document.getElementById('guessCity').value;
+
+            // Compare values and update counts
+            if (guessCity === secretCity) {
+                found++;
+                alert("GotCha!");
+            } else {
+                oops++;
+                alert("Awe");
+            }
+
+            // Update result display
+            document.getElementById('result').innerHTML = `Found: ${found} | Oops: ${oops}`;
+        }
+    </script>
+
+</body>
+</html>
