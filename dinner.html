@@ -54,8 +54,19 @@
         
                 <button type="button" onclick="choices()">Dinner Choices</button>
             </form>
-        
+            <h3>Enter Your Dinner Menu</h3>
+
+            <!-- Inputs for main dish and dessert -->
+            <label for="main">Enter main dish:</label>
+            <input type="text" id="main" value="Butter Chicken">
+
+            <label for="dessert">Enter dessert:</label>
+            <input type="text" id="dessert" value="Chocolate Cake">
+
+            <button type="button" onclick="updateDinner()">Update the Dinner</button>
+
             <div id="results">Your dinner choices will appear here...</div>
+            <div id="results1">Your dinner choices will appear here...</div>
         
             <script>
                 let my_dinner = {};
@@ -68,6 +79,12 @@
                     };
         
                     document.getElementById("results").innerHTML = "Dinner settings: " + JSON.stringify(my_dinner);
+                }
+                function updateDinner() {
+                    my_dinner.main = document.getElementById("main").value;
+                    my_dinner.dessert = document.getElementById("dessert").value;
+
+                    document.getElementById("results1").innerHTML = "Full Dinner Plan: " + JSON.stringify(my_dinner);
                 }
             </script>
         
