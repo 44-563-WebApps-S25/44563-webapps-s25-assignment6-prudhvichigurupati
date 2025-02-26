@@ -40,36 +40,37 @@
     <h2>Dinner Choices</h2>
 
     <form>
-        <label>
-            <input type="checkbox" id="wine" value="checked"> Serve wine
-        </label>
-
-        <label>
-            <input type="checkbox" id="outside" value="checked"> Eat outside
-        </label>
-
-        <label>
-            <input type="checkbox" id="candle"> Light candles
-        </label>
-
-        <button type="button" onclick="choices()">Dinner Choices</button>
-    </form>
-
-    <div id="results">Your dinner choices will appear here...</div>
-
-    <script>
-        let my_dinner = {};
-
-        function choices() {
-            my_dinner = {
-                wine: document.getElementById("wine").checked,
-                outside: document.getElementById("outside").checked,
-                candle: document.getElementById("candle").checked
-            };
-
-            document.getElementById("results").innerHTML = "Dinner settings: " + JSON.stringify(my_dinner);
-        }
-    </script>
-
-</body>
-</html>
+                <label>
+                    <input type="checkbox" id="wine" value="True" checked> Serve wine
+                </label>
+        
+                <label>
+                    <input type="checkbox" id="outside" value="True" checked> Eat outside
+                </label>
+        
+                <label>
+                    <input type="checkbox" id="candle"> Light candles
+                </label>
+        
+                <button type="button" onclick="choices()">Dinner Choices</button>
+            </form>
+        
+            <div id="results">Your dinner choices will appear here...</div>
+        
+            <script>
+                let my_dinner = {};
+        
+                function choices() {
+                    my_dinner = {
+                        wine: document.getElementById("wine").checked ? "True" : "False",
+                        outside: document.getElementById("outside").checked ? "True" : "False",
+                        candle: document.getElementById("candle").checked ? "True" : "False"
+                    };
+        
+                    document.getElementById("results").innerHTML = "Dinner settings: " + JSON.stringify(my_dinner);
+                }
+            </script>
+        
+        </body>
+        </html>
+        
