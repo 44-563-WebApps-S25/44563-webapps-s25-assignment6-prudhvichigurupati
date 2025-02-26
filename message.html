@@ -49,6 +49,17 @@
     <input type="number" id="discount" value="10">
 
     <button onclick="amounts()">Show Total</button>
+    <h3>Select an operation:</h3>
+    <form>
+        <input type="radio" id="product" name="operation" value="times" onclick="chooseOp()">
+        <label for="product">Product</label><br>
+
+        <input type="radio" id="sum" name="operation" value="add" onclick="chooseOp()">
+        <label for="sum">Sum</label><br>
+
+        <input type="radio" id="mod" name="operation" value="mod" onclick="chooseOp()">
+        <label for="mod">Modulo</label><br>
+    </form>
 
     <div id="results">Totals will be displayed here...</div>
 
@@ -70,6 +81,30 @@
             }
 
             document.getElementById("results").innerHTML = `Totals are: ${myResults}`;
+        }
+        function chooseOp() {
+            let price = parseFloat(document.getElementById("basicprice").value);
+            let breakAt = parseFloat(document.getElementById("breakAt").value);
+            let selectedOp = document.querySelector('input[name="operation"]:checked');
+
+            if (!selectedOp) {
+                document.getElementById("results").innerHTML = "Please select an operation.";
+                return;
+            }
+
+            let operation = selectedOp.value;
+            let result;
+
+            if (operation === "times") {
+                result = price * breakAt;
+                document.getElementById("results").innerHTML = `${price} × ${breakAt} = ${result}`;
+            } else if (operation === "add") {
+                result = price + breakAt;
+                document.getElementById("results").innerHTML = `${price} + ${breakAt} = ${result}`;
+            } else if (operation === "mod") {
+                result = price % breakAt;
+                document.getElementById("results").innerHTML = `${price} % ${breakAt} = ${result}`;
+            }
         }
     </script>
 
