@@ -5,34 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prudhvi Chigurupati Message Cost</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        #results {
-            margin-top: 20px;
-            font-weight: bold;
-        }
+       body {
+    background: #121212;
+    color: #e0f7fa;
+}
+
+.container {
+    background: #1e3a8a;
+    border: 2px solid #82b1ff;
+}
+
+input {
+    background: #0d47a1;
+    color: #e0f7fa;
+    border: 1px solid #82b1ff;
+}
+
+button {
+    background: #2196f3;
+    color: white;
+}
+
+button:hover {
+    background: #64b5f6;
+}
+
     </style>
 </head>
 <body>
@@ -40,13 +37,13 @@
     <h2> Message Cost Calculator</h2>
 
     <label for="basicprice">Enter cost per letter:</label>
-    <input type="number" id="basicprice" value="0.50" step="0.01">
+    <input type="number" id="basicprice" value="0.50" step="0.01"><br><br>
 
     <label for="breakAt">Enter the length needed for discount:</label>
-    <input type="number" id="breakAt" value="9">
+    <input type="number" id="breakAt" value="9"><br><br>
 
     <label for="discount">Enter the discount percent:</label>
-    <input type="number" id="discount" value="10">
+    <input type="number" id="discount" value="10"><br><br>
 
     <button onclick="amounts()">Show Total</button>
     <h3>Select an operation:</h3>
@@ -59,9 +56,11 @@
 
         <input type="radio" id="mod" name="operation" value="mod" onclick="chooseOp()">
         <label for="mod">Modulo</label><br>
+
     </form>
 
     <div id="results">Totals will be displayed here...</div>
+    <div id="results1">Totals will be displayed here...</div>
 
     <script>
         function amounts() {
@@ -97,13 +96,13 @@
 
             if (operation === "times") {
                 result = price * breakAt;
-                document.getElementById("results").innerHTML = `${price} × ${breakAt} = ${result}`;
+                document.getElementById("results1").innerHTML = `${price} × ${breakAt} = ${result}`;
             } else if (operation === "add") {
                 result = price + breakAt;
-                document.getElementById("results").innerHTML = `${price} + ${breakAt} = ${result}`;
+                document.getElementById("results1").innerHTML = `${price} + ${breakAt} = ${result}`;
             } else if (operation === "mod") {
                 result = price % breakAt;
-                document.getElementById("results").innerHTML = `${price} % ${breakAt} = ${result}`;
+                document.getElementById("results1").innerHTML = `${price} % ${breakAt} = ${result}`;
             }
         }
     </script>

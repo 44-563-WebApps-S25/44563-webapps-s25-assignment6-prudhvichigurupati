@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Game by Prudhvi Chigurupati</title>
+    <style>
+       body {
+    background: #212121;
+    color: #ffcc80;
+}
+
+.container {
+    background: #f57c00;
+    border: 2px solid #ff9800;
+}
+
+input {
+    background: #ff9800;
+    color: #212121;
+    border: 1px solid #ffcc80;
+}
+
+button {
+    background: #ff6d00;
+    color: white;
+}
+
+button:hover {
+    background: #ffa726;
+}
+
+
+    </style>
 </head>
 <body>
 
@@ -13,7 +41,7 @@
     <form>
         <!-- Secret city input (hidden city) -->
         <label for="secretCity">Where in the world:</label>
-        <input type="password" id="secretCity" value="San Diego">
+        <input type="password" id="secretCity" value="San Diego" readonly>
         <br><br>
 
         <!-- User guess input -->
@@ -22,50 +50,59 @@
         <br><br>
 
         <!-- Button to trigger check -->
-        <button type="button" onclick="checkCity()">Check the guess</button>
+        <button type="button" id="guessButton" onclick="checkCity()">Check the guess</button>
     </form>
 
     <!-- Results display -->
     <p id="result">Found: 0 | Oops: 0</p>
+    <p id="message"></p>
 
+    <!-- Image switching -->
     <div>
         <img id="pic" src="image1.jpg" width="150" height="150" onclick="updatePic()">
     </div>
-    
 
     <!-- JavaScript Logic -->
     <script>
         // Initialize global counters
         let found = 0;
         let oops = 0;
+        let usePic = 1;
 
         // Function to check city match
         function checkCity() {
             // Get the values from both input elements
-            const secretCity = document.getElementById('secretCity').value;
-            const guessCity = document.getElementById('guessCity').value;
+            const secretCity = document.getElementById('secretCity').value.trim().toLowerCase();
+            const guessCity = document.getElementById('guessCity').value.trim().toLowerCase();
+            
 
             // Compare values and update counts
             if (guessCity === secretCity) {
                 found++;
-                alert("GotCha!");
+                alert("Gotcha")
+                alert.style.color = "green";
             } else {
                 oops++;
-                alert("Awe");
+               alert("Awe")
+                alert.style.color = "red";
             }
 
             // Update result display
-            document.getElementById('result').innerHTML = `Found: ${found} | Oops: ${oops}`;
+            document.getElementById('result').innerHTML = `Found: ${found} |Oops: ${oops}`;
 
+            // If wrong guesses exceed twice the correct ones, disable the button and show message
+            if (oops > found * 2) {
+               alert("Sorry, too many wrong guesses.")
+                messageDiv.style.color = "darkred";
+            }
         }
-        let usePic = 1;
+
+        // Function to update image on click
         function updatePic() {
             let img = document.getElementById("pic");
             usePic = (usePic % 3) + 1;
             img.src = `image${usePic}.jpg`;
         }
-
-        
     </script>
 
 </body>

@@ -6,33 +6,30 @@
     <title>Prudhvi Chigurupati Dinner Plans</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        #results {
-            margin-top: 20px;
-            font-weight: bold;
-        }
+    background: #f1f8e9;
+    color: #4caf50;
+}
+
+.container {
+    background: #ffffff;
+    border: 2px solid #81c784;
+}
+
+input {
+    background: #c8e6c9;
+    color: #2e7d32;
+    border: 1px solid #81c784;
+}
+
+button {
+    background: #388e3c;
+    color: white;
+}
+
+button:hover {
+    background: #66bb6a;
+}
+
     </style>
 </head>
 <body>
@@ -42,15 +39,15 @@
     <form>
                 <label>
                     <input type="checkbox" id="wine" value="True" checked> Serve wine
-                </label>
+                </label><br><br>
         
                 <label>
                     <input type="checkbox" id="outside" value="True" checked> Eat outside
-                </label>
+                </label><br><br>
         
                 <label>
                     <input type="checkbox" id="candle"> Light candles
-                </label>
+                </label><br><br>
         
                 <button type="button" onclick="choices()">Dinner Choices</button>
             </form>
@@ -58,10 +55,10 @@
 
             <!-- Inputs for main dish and dessert -->
             <label for="main">Enter main dish:</label>
-            <input type="text" id="main" value="Butter Chicken">
+            <input type="text" id="main" value="Butter Chicken"><br><br>
 
             <label for="dessert">Enter dessert:</label>
-            <input type="text" id="dessert" value="Chocolate Cake">
+            <input type="text" id="dessert" value="Chocolate Cake"><br><br>
 
             <button type="button" onclick="updateDinner()">Update the Dinner</button>
 
